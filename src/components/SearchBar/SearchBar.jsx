@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { IoSearchSharp } from "react-icons/io5";
-import css from "./SearcbBar.module.css";
+import css from "./SearchBar.module.css";
 
 export default function SearchBar({ onSubmit }) {
   const inputRef = useRef(null);
