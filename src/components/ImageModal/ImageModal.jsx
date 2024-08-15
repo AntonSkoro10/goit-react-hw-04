@@ -2,6 +2,7 @@ import css from "./ImageModal.module.css";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
+
 export default function ImageModal({ image, isOpen, onRequestClose }) {
   const customStyles = {
     content: {
@@ -22,6 +23,9 @@ export default function ImageModal({ image, isOpen, onRequestClose }) {
       backgroundColor: "rgba(0, 0, 0, 0.7)",
     },
   };
+
+  if (!image) return null;
+
   return (
     <Modal
       isOpen={isOpen}
@@ -33,13 +37,13 @@ export default function ImageModal({ image, isOpen, onRequestClose }) {
       <img
         className={css.modal_img}
         src={image.urls.regular}
-        alt={image.alt_description}
+        alt={image.alt_description || "Image"}
       />
       <ul className={css.modal_list}>
         <li className={css.modal_item}>{image.description}</li>
-        <li className={css.modal_item}>Creator: {image.user.name}</li>
+        <li className={css.modal_item}>Creator: {image.user?.name}</li>
         <li className={css.modal_item}>Created at: {image.created_at}</li>
-        <li className={css.modal_item}>Like`s: {image.likes}</li>
+        <li className={css.modal_item}>Likes: {image.likes}</li>
       </ul>
     </Modal>
   );

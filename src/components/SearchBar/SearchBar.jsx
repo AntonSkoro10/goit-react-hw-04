@@ -5,6 +5,7 @@ import css from "./SearchBar.module.css";
 
 export default function SearchBar({ onSubmit }) {
   const inputRef = useRef(null);
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const formInput = inputRef.current.value;
@@ -15,6 +16,7 @@ export default function SearchBar({ onSubmit }) {
     onSubmit(formInput);
     event.target.reset();
   };
+
   return (
     <header className={css.header}>
       <form className={css.form} onSubmit={handleSubmit}>

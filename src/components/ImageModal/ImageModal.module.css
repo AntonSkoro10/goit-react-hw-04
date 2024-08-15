@@ -1,0 +1,26 @@
+.modal_conatiner {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+}
+
+.modal_img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.modal_list {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 0 0 8px 8px;
+}
+
+.modal_item {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
