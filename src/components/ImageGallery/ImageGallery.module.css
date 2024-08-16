@@ -1,0 +1,29 @@
+/* ImageGallery.module.css */
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Встановлює сітку з мінімальною шириною елементу 200px */
+    gap: 16px;
+    /* Відстань між елементами */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    display: block;
+    border-radius: 8px;
+    /* Заокруглення кутів */
+    overflow: hidden;
+    /* Вимикає вихід контенту за межі елементу */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Тінь для елементів */
+    transition: transform 0.3s ease-in-out;
+    /* Анімація при наведенні */
+}
+
+li:hover {
+    transform: scale(1.05);
+    /* Збільшення при наведенні */
+}
