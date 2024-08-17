@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function ErrorMessage({ message }) {
-    return <p>{ message }</p>
+  return <div style={{ color: 'red' }}>{message}</div>;
 }

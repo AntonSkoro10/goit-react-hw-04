@@ -1,8 +1,9 @@
-import css from "./LoadMoreBtn.module.css"
-export default function LoadMoreBtn({ handleClick }) {
-    return (
-        <button className={css.button} onClick={handleClick}>
-            Load more
-        </button>
-    )
+import React from 'react';
+
+export default function LoadMoreBtn({ onClick }) {
+  return (
+    <button onClick={onClick} style={{ margin: '20px auto', display: 'block' }}>
+      Load more
+    </button>
+  );
 }

@@ -1,37 +1,31 @@
-import { useRef } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { IoSearchSharp } from "react-icons/io5";
-import css from "./SearchBar.module.css";
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function SearchBar({ onSubmit }) {
-  const inputRef = useRef(null);
-  
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formInput = inputRef.current.value;
-    if (formInput.trim() === "") {
-      toast("Pls enter search query", { position: "top-right" });
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!query.trim()) {
+      toast.error("Please enter a search query");
       return;
     }
-    onSubmit(formInput);
-    event.target.reset();
+    onSubmit(query);
+    setQuery('');
   };
 
   return (
-    <header className={css.header}>
-      <form className={css.form} onSubmit={handleSubmit}>
+    <header>
+      <form onSubmit={handleSubmit}>
         <input
-          className={css.form_input}
           type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search images and photos"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
-          ref={inputRef}
         />
-        <button className={css.form_btn} type="submit">
-          <IoSearchSharp />
-        </button>
-        <Toaster />
+        <button type="submit">Search</button>
       </form>
     </header>
   );
